@@ -1,7 +1,8 @@
 var express = require("express");
-	app = express();
-	bodyParser = require("body-parser");
-	mongoose = require("mongoose");
+var	app = express();
+var	bodyParser = require("body-parser");
+var	mongoose = require("mongoose");
+var unirest = require("unirest");
 
 
 mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpcamp?retryWrites=true&w=majority", {
@@ -25,60 +26,36 @@ var campgroundSchema = new mongoose.Schema({
 
 var Campground = mongoose.model("Campground", campgroundSchema);
 
+
+//RESTful routes
 app.get("/", function(req, res){
-	res.render("landing");
-});
-
-app.get("/campgrounds", function(req, res){
-	//get all campgrounds from DB
-	Campground.find({}, function(err, allCampgrounds){
-		if(err){
-			console.log(err);
-		}else{
-			res.render("index", {campgrounds:allCampgrounds});
-		}
-	});
-	
-});
-
-app.post("/campgrounds", function(req, res){
-	//get data from form and add to camground DB
-	var name = req.body.name;
-	var image = req.body.image;
-	var desc = req.body.description;
-	var newCampground = {name:name, image:image, description:desc};
-
-	Campground.create(newCampground, function(err, newlyCreated){
-		if(err){
-			console.log(err);
-		}else{
-			res.redirect("/campgrounds");	
-		}
-	});	
-});
-
-app.get("/campgrounds/new", function(req, res){
-	res.render("new");
-});
-
-//Show more info bout one campground
-app.get("/campgrounds/:id", function(req,res){
-	
-	//find campground with provided id
-	Campground.findById(req.params.id, function(err, foundCampground){
-		if(err){
-			console.log(err);
-		}else{
-			res.render("show", {campground:foundCampground});
-		}
-	});
+	res.render("index");
 });
 
 
-const port = process.env.PORT || 9000;
+
+// //spoonacular API
+// const API_KEY = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
+// const INGREDIENT_LIST = ['bananas', 'apples', 'cheese', 'crackers'];
+// let requestString = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/find" +
+// "ByIngredients?number=1&ranking=1&ingredients=";
+// const ingredientsString = INGREDIENT_LIST.map(ingredient =>
+//   ingredient + '%2C'
+// );
+// requestString = requestString + ingredientsString;
+// unirest.get(requestString)
+// .header("X-RapidAPI-Key",  API_KEY)
+// .end(function (result) {
+//   if (result.status === 200){
+//     	console.log(result.body[0].title);
+//   };
+// });
+//
+
+
+const port = process.env.PORT || 8080;
 const ip = process.env.IP || "127.0.0.1";
-app.listen(port,function(){
-    console.log("YelpCamp Server is listening");
+app.listen(8080,'127.0.0.1',function(){
+    console.log("Recipes Server is listening");
 });
-
 
