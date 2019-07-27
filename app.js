@@ -63,7 +63,7 @@ app.get("/", function(req, res){
 
 const port = process.env.PORT || 8080;
 const ip = process.env.IP || "127.0.0.1";
-app.listen(8080,'127.0.0.1',function(){
+app.listen(port,ip,function(){
     console.log("Recipes Server is listening");
 });
 
