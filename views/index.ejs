@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<h1>Recipes</h1>
+<h1>Weakly Recipes Generator</h1>
 
 <table class="table">
 	<tr>
@@ -13,14 +13,25 @@
 		<th>Saturday</th>
 	</tr>
 	<tr>
-		<td>Soup</td>
-		<td>Sandwich</td>
-		<td>Stirfry</td>
-		<td>Pasta</td>
-		<td>Tofu</td>
-		<td>Eggs</td>
-		<td>New Recipe</td>
+		<td> <input type="text" name="sunday-recipe" value="Soup" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="monday-recipe" value="Sandwich" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="tuesday-recipe" value="Stirfry" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="wednesday-recipe" value="Pasta" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="thursday-recipe" value="Tofu" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="friday-recipe" value="Eggs" placeholder="Enter Ingredients"> </td>
+		<td><input type="text" name="saturday-recipe" value="New Recipe" placeholder="Enter Ingredients"> </td>
+	</tr>
+	<tr>
+		<td> <button>Recipe</button> </td>
+		<td> <button>Recipe</button> </td>
+		<td> <button>Recipe</button> </td>
+		<td> <button>Recipe</button> </td>
+		<td> <button>Recipe</button> </td>
+		<td> <button>Recipe</button> </td>
+		<td> <button>Recipe</button> </td>
 	</tr>
 </table>
+
+<!--<h1><%=title%></h1>-->
 
 <% include partials/footer %>
