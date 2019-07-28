@@ -2,13 +2,13 @@
 
 <h1>Weakly Recipes Generator</h1>
 
-<form method="POST" action=/index>
+<form method="POST">
 	<table class="table">
 		<tr>
 			<th>Sunday</th>
 			<th>Monday</th>
 			<th>Tuesday</th>
-			<th>Wednesdday</th>
+			<th>Wednesday</th>
 			<th>Thursday</th>
 			<th>Friday</th>
 			<th>Saturday</th>
@@ -23,18 +23,20 @@
 		<td><input type="text" name="saturday-recipe" value="New Recipe" placeholder="Enter Ingredients"> </td>
 	</tr>
 	<tr>
-		<td> <input type="button" value="Get Recipe" </td>
-		<td> <input type="button" value="Get Recipe" </td>
-		<td> <input type="button" value="Get Recipe" </td>
-		<td> <input type="button" value="Get Recipe" </td>
-		<td> <input type="button" value="Get Recipe" </td>
-		<td> <input type="button" value="Get Recipe" </td>
-		<td> <input type="button" value="Get Recipe" </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/sunday">Get Recipe</button> </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/monday">Get Recipe</button> </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/tuesday">Get Recipe</button> </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/wednesday">Get Recipe</button> </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/thursday">Get Recipe</button> </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/friday">Get Recipe</button> </td>
+		<td> <button type="submit" value="Get Recipe" formaction="/saturday">Get Recipe</button> </td>
 	</tr>
 	</table>
 </form>
 
+<div>
+	<p><%=recipe%></p>
+</div>
 
-<!--<h1><%=title%></h1>-->
 
 <% include partials/footer %>

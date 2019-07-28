@@ -29,6 +29,13 @@ var Campground = mongoose.model("Campground", campgroundSchema);
 
 //RESTful routes
 app.get("/", function(req, res){
+	var recipe="Recipe Here";
+	res.render("index", {recipe:recipe});
+});
+
+
+
+app.post("/sunday", function(req,res){
 	//spoonacular API
 	const API_KEY = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
 	const INGREDIENT_LIST = ['bananas', 'apples', 'cheese', 'crackers'];
@@ -44,20 +51,13 @@ app.get("/", function(req, res){
 	.header("X-RapidAPI-Key",  API_KEY)
 	.end(function (result) {
 	  if (result.status === 200){
-	    	//console.log(result.body[0].title);
-	    	var title = result.body[0].title
-	    	res.render("index", {title:title});
+	    	var recipe = result.body[0];
+	    	res.render("index", {recipe:recipe});
+	  }else{
+	  	console.log("ERROR! Status: " + result.status);
 	  };
 	});
-	
-	
-	
-
 });
-
-
-
-
 
 
 
