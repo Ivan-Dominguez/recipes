@@ -36,22 +36,22 @@ app.get("/", function(req, res){
 
 
 app.post("/sunday", function(req,res){
+	//var query = req.body.query;
+	
 	//spoonacular API
 	const API_KEY = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
-	const INGREDIENT_LIST = ['bananas', 'apples', 'cheese', 'crackers'];
-	let requestString = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/find" +
-	"ByIngredients?number=1&ranking=1&ingredients=";
-	const ingredientsString = INGREDIENT_LIST.map(ingredient =>
-	  ingredient + '%2C'
-	);
+	var query = "soup";
+	let requestString = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"+
+	"search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=2&offset=0&type=main+course&query=";
 	
-	requestString = requestString + ingredientsString;
+	requestString = requestString + query;
 	
 	unirest.get(requestString)
 	.header("X-RapidAPI-Key",  API_KEY)
 	.end(function (result) {
 	  if (result.status === 200){
-	    	var recipe = result.body[0];
+	    	var recipe = result.body.results[1].title;
+	    	console.log(recipe);
 	    	res.render("index", {recipe:recipe});
 	  }else{
 	  	console.log("ERROR! Status: " + result.status);
