@@ -36,30 +36,57 @@ app.get("/", function(req, res){
 
 
 app.post("/sunday", function(req,res){
-	//var query = req.body.query;
+	var query = req.body.query;
+	var recipe = makeAPICall(query, res);
 	
-	//spoonacular API
-	const API_KEY = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
-	var query = "soup";
-	let requestString = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"+
-	"search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%2C+gluten&number=2&offset=0&type=main+course&query=";
 	
-	requestString = requestString + query;
-	
-	unirest.get(requestString)
-	.header("X-RapidAPI-Key",  API_KEY)
-	.end(function (result) {
-	  if (result.status === 200){
-	    	var recipe = result.body.results[1].title;
-	    	console.log(recipe);
-	    	res.render("index", {recipe:recipe});
-	  }else{
-	  	console.log("ERROR! Status: " + result.status);
-	  };
-	});
 });
 
+function makeAPICall(query,res){
+	
+	var requestRecipeID = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search");
+	var host = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
+	var key = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
+	
+	requestRecipeID.query({
+		"diet": "vegetarian",
+		"excludeIngredients": "coconut",
+		"intolerances": "",
+		"number": "10",
+		"offset": "0",
+		"type": "main course",
+		"query": query
+	});
+	
+	requestRecipeID.headers({
+		"x-rapidapi-host": host,
+		"x-rapidapi-key": key
+	});
+	
+	
+	requestRecipeID.end(function (result) {
+		if (result.error) throw new Error(result.error);
+		
+		var recipeID = result.body.results[0].id;
+		
+		//use ID to get recipe info
+		var requestRecipeInfo = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/964239/information");
 
+		requestRecipeInfo.headers({
+			"x-rapidapi-host": host,
+			"x-rapidapi-key": key
+		});
+		
+		
+		requestRecipeInfo.end(function (result) {
+			if (result.error) throw new Error(result.error);
+		
+			console.log(result.body);
+			res.render("index", {recipe:result.body.instructions});
+		});
+		//res.render("index", {recipe:recipeID});
+	});
+}
 
 const port = process.env.PORT || 8080;
 const ip = process.env.IP || "0.0.0.0";

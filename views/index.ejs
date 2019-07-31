@@ -15,7 +15,7 @@
 		</tr>
 		<tr>
 		<td> <input type="text" name="query" value="Soup" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="monday-recipe" value="Sandwich" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query-monday" value="Sandwich" placeholder="Enter Ingredients"> </td>
 		<td> <input type="text" name="tuesday-recipe" value="Stirfry" placeholder="Enter Ingredients"> </td>
 		<td> <input type="text" name="wednesday-recipe" value="Pasta" placeholder="Enter Ingredients"> </td>
 		<td> <input type="text" name="thursday-recipe" value="Tofu" placeholder="Enter Ingredients"> </td>
@@ -35,8 +35,12 @@
 </form>
 
 <div>
-	<p><%=recipe%></p>
+	<p>
+		<%=recipe %>
+	</p>
 </div>
+
+
 
 
 <% include partials/footer %>
