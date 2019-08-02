@@ -26,17 +26,50 @@ var campgroundSchema = new mongoose.Schema({
 var Campground = mongoose.model("Campground", campgroundSchema);
 
 
-//********** RESTful routes **********//
+//******************** RESTful routes ********************//
 app.get("/", function(req, res){
-	var recipe="Recipe Here";
-	res.render("index", {recipe:recipe});
+	var recipeInfo ={title:"Title: ", extendedIngredients:[""], instructions : ""};
+	
+	res.render("index", {recipeInfo});
 });
 
 app.post("/sunday", function(req,res){
-	var query = req.body.query;
+	var query = req.body.query_sunday;
 	makeAPICall(query,res);
 });
 
+app.post("/monday", function(req,res){
+	var query = req.body.query_monday;
+	makeAPICall(query,res);
+});
+
+app.post("/tuesday", function(req,res){
+	var query = req.body.query_tuesday;
+	makeAPICall(query,res);
+});
+
+app.post("/wednesday", function(req,res){
+	var query = req.body.query_wednesday;
+	makeAPICall(query,res);
+});
+
+app.post("/thursday", function(req,res){
+	var query = req.body.query_thursday;
+	makeAPICall(query,res);
+});
+
+app.post("/friday", function(req,res){
+	var query = req.body.query_friday;
+	makeAPICall(query,res);
+});
+
+app.post("/saturday", function(req,res){
+	var query = req.body.query_saturday;
+	makeAPICall(query,res);
+});
+
+
+//******************** API's functions ********************//
 function makeAPICall(query,res){
 	getRecipeID(query)
 	.then((recipeID) => {
@@ -94,7 +127,7 @@ function getRecipeInfo(recipeID){
 		
 		requestRecipeInfo.end(function (result) {
 			if (!result.error){
-				var recipeInfo = result.body.title;
+				var recipeInfo = result.body;
 				resolve(recipeInfo);
 			}else{
 				reject(result.error);
@@ -104,8 +137,8 @@ function getRecipeInfo(recipeID){
 }
 
 function renderRecipe(recipeInfo, res){
-	console.log("info: "+ recipeInfo);
-	res.render("index", {recipe:recipeInfo});
+	
+	res.render("index", {recipeInfo});
 }
 
 const port = process.env.PORT || 8080;

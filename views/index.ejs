@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<h1>Weakly Recipes Generator</h1>
+<h1>Weekly Recipe Generator</h1>
 
 <form method="POST">
 	<table class="table">
@@ -14,13 +14,13 @@
 			<th>Saturday</th>
 		</tr>
 		<tr>
-		<td> <input type="text" name="query" value="Soup" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query-monday" value="Sandwich" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="tuesday-recipe" value="Stirfry" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="wednesday-recipe" value="Pasta" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="thursday-recipe" value="Tofu" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="friday-recipe" value="Eggs" placeholder="Enter Ingredients"> </td>
-		<td><input type="text" name="saturday-recipe" value="New Recipe" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_sunday" value="Soup" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_monday" value="Sandwich" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_tuesday" value="Stirfry" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_wednesday" value="Pasta" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_thursday" value="Tofu" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_friday" value="Eggs" placeholder="Enter Ingredients"> </td>
+		<td><input type="text" name="query_saturday" value="New Recipe" placeholder="Enter Ingredients"> </td>
 	</tr>
 	<tr>
 		<td> <button type="submit" value="Get Recipe" formaction="/sunday">Get Recipe</button> </td>
@@ -35,9 +35,19 @@
 </form>
 
 <div>
-	<p>
-		<%=recipe %>
-	</p>
+	<h3> <%= recipeInfo.title %>	</h3>
+</div>
+<div>
+	<h4>Ingredients:</h4>
+	<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
+		<li><%= ingredient.name %> </li>
+	<% }) %>
+	
+	
+</div>		
+<div>
+	<h4>Directions:</h4>
+	<p> <%= recipeInfo.instructions %>	</p>
 </div>
 
 
