@@ -4,6 +4,8 @@ var	bodyParser = require("body-parser");
 var	mongoose = require("mongoose");
 var unirest = require("unirest");
 
+//*************************** APP config ***************************//
+app.use(express.static("public"));
 mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpcamp?retryWrites=true&w=majority", {
 				 useNewUrlParser:true,
 				 useCreateIndex: true

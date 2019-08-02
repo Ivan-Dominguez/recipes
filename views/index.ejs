@@ -1,6 +1,10 @@
 <% include partials/header %>
 
-<h1>Weekly Recipe Generator</h1>
+<div class="jumbotron text-center">
+	<h1 class="display-4">Weekly Recipe Generator</h1>
+	<hr class="my-4">
+</div>
+
 
 <form method="POST">
 	<table class="table">
@@ -42,12 +46,13 @@
 	<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
 		<li><%= ingredient.name %> </li>
 	<% }) %>
-	
-	
 </div>		
 <div>
-	<h4>Directions:</h4>
-	<p class="lead"> <%= recipeInfo.instructions %>	</p>
+	<h4 id="direction">Directions:</h4>
+	<div>
+			<p> <%= recipeInfo.instructions %>	</p>
+	</div>
+
 </div>
 
 
