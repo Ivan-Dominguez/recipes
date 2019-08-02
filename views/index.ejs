@@ -4,14 +4,14 @@
 
 <form method="POST">
 	<table class="table">
-		<tr>
-			<th>Sunday</th>
-			<th>Monday</th>
-			<th>Tuesday</th>
-			<th>Wednesday</th>
-			<th>Thursday</th>
-			<th>Friday</th>
-			<th>Saturday</th>
+		<tr class="table-primary">
+			<th class="text-center">Sunday</th>
+			<th class="text-center">Monday</th>
+			<th class="text-center">Tuesday</th>
+			<th class="text-center">Wednesday</th>
+			<th class="text-center">Thursday</th>
+			<th class="text-center">Friday</th>
+			<th class="text-center">Saturday</th>
 		</tr>
 		<tr>
 		<td> <input type="text" name="query_sunday" value=<%=query_list.sunday%> placeholder="Enter Ingredients"> </td>
@@ -47,7 +47,7 @@
 </div>		
 <div>
 	<h4>Directions:</h4>
-	<p> <%= recipeInfo.instructions %>	</p>
+	<p class="lead"> <%= recipeInfo.instructions %>	</p>
 </div>
 
 
