@@ -24,48 +24,49 @@ var campgroundSchema = new mongoose.Schema({
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
+var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stirfy", wednesday:"Pasta",
+					thursday:"Tofu", friday:"Eggs", saturday:"Lentils"};
 
-
-//******************** RESTful routes ********************//
+//*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
-	var recipeInfo ={title:"Title: ", extendedIngredients:[""], instructions : ""};
+	var recipeInfo = {title:"Title: ", extendedIngredients:[""], instructions : ""};
 	
-	res.render("index", {recipeInfo});
+	res.render("index", {recipeInfo,query_list});
 });
 
 app.post("/sunday", function(req,res){
-	var query = req.body.query_sunday;
-	makeAPICall(query,res);
+	query_list.sunday = req.body.query_sunday;
+	makeAPICall(query_list.sunday,res);
 });
 
 app.post("/monday", function(req,res){
-	var query = req.body.query_monday;
-	makeAPICall(query,res);
+	query_list.monday = req.body.query_monday;
+	makeAPICall(query_list.monday,res);
 });
 
 app.post("/tuesday", function(req,res){
-	var query = req.body.query_tuesday;
-	makeAPICall(query,res);
+	query_list.tuesday = req.body.query_tuesday;
+	makeAPICall(query_list.tuesday,res);
 });
 
 app.post("/wednesday", function(req,res){
-	var query = req.body.query_wednesday;
-	makeAPICall(query,res);
+	query_list.wednesday = req.body.query_wednesday;
+	makeAPICall(query_list.wednesday,res);
 });
 
 app.post("/thursday", function(req,res){
-	var query = req.body.query_thursday;
-	makeAPICall(query,res);
+	query_list.thursday = req.body.query_thursday;
+	makeAPICall(query_list.thursday,res);
 });
 
 app.post("/friday", function(req,res){
-	var query = req.body.query_friday;
-	makeAPICall(query,res);
+	query_list.friday = req.body.query_friday;
+	makeAPICall(query_list.friday,res);
 });
 
 app.post("/saturday", function(req,res){
-	var query = req.body.query_saturday;
-	makeAPICall(query,res);
+	query_list.saturday = req.body.query_saturday;
+	makeAPICall(query_list.saturday,res);
 });
 
 
@@ -138,7 +139,7 @@ function getRecipeInfo(recipeID){
 
 function renderRecipe(recipeInfo, res){
 	
-	res.render("index", {recipeInfo});
+	res.render("index", {recipeInfo,query_list});
 }
 
 const port = process.env.PORT || 8080;

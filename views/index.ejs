@@ -14,13 +14,13 @@
 			<th>Saturday</th>
 		</tr>
 		<tr>
-		<td> <input type="text" name="query_sunday" value="Soup" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_monday" value="Sandwich" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_tuesday" value="Stirfry" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_wednesday" value="Pasta" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_thursday" value="Tofu" placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_friday" value="Eggs" placeholder="Enter Ingredients"> </td>
-		<td><input type="text" name="query_saturday" value="New Recipe" placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_sunday" value=<%=query_list.sunday%> placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_monday" value=<%=query_list.monday%> placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_tuesday" value=<%=query_list.tuesday%> placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_wednesday" value=<%=query_list.wednesday%> placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_thursday" value=<%=query_list.thursday%> placeholder="Enter Ingredients"> </td>
+		<td> <input type="text" name="query_friday" value=<%=query_list.friday%> placeholder="Enter Ingredients"> </td>
+		<td><input type="text" name="query_saturday" value=<%=query_list.saturday%> placeholder="Enter Ingredients"> </td>
 	</tr>
 	<tr>
 		<td> <button type="submit" value="Get Recipe" formaction="/sunday">Get Recipe</button> </td>
