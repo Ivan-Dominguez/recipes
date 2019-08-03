@@ -1,0 +1,45 @@
+#days_table{
+   border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+
+.form-row{
+     padding: 5px;
+} 
+ 
+ #day_name{
+     background-color: rgb(149, 192, 234);
+     text-align: center;
+     padding: 5px;
+     font-weight: bold;
+ }
+ 
+ #day_name{
+      border: 1px solid gray;
+      margin:2px;
+ }
+ 
+#day_query {
+     /*text-align: center;*/
+ }
+
+#recipe_title{
+    padding-top: 30px;
+}
+
+#recipe_ingredients{
+    padding-top: 30px;
+}
+
+#directions{
+    padding-top: 30px;
+}
+
+p{
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    padding: 15px;
+}
