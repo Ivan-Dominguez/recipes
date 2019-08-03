@@ -7,7 +7,7 @@
 		<hr class="my-4">
 	</div>
 	<form method="POST">
-		<div class="container-fluid">
+		<div id="days_table" class="container-fluid">
 			<div class="form-row">
 				<div id="day_name" class="col">Sunday</div>
 				<div id="day_name"  class="col">Monday</div>
@@ -16,16 +16,15 @@
 				<div id="day_name"  class="col">Thursday</div>
 				<div id="day_name"  class="col">Friday</div>
 				<div id="day_name"  class="col">Saturday</div>
-				
 			</div>
 			<div class="form-row">
 				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_sunday" value=<%=query_list.sunday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input type="text" class="form-control" name="query_monday" value=<%=query_list.monday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input type="text" class="form-control" name="query_tuesday" value=<%=query_list.tuesday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input type="text" class="form-control" name="query_wednesday" value=<%=query_list.wednesday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input type="text" class="form-control" name="query_thursday" value=<%=query_list.thursday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input type="text" class="form-control" name="query_friday" value=<%=query_list.friday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input type="text" class="form-control" name="query_saturday" value=<%=query_list.saturday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_monday" value=<%=query_list.monday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_tuesday" value=<%=query_list.tuesday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_wednesday" value=<%=query_list.wednesday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_thursday" value=<%=query_list.thursday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_friday" value=<%=query_list.friday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_saturday" value=<%=query_list.saturday%> placeholder="Enter Ingredients"> </div>
 			</div>
 			<div class="form-row">	
 				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/sunday">Get Recipe</button> </div>
@@ -40,10 +39,10 @@
 	</form>
 	
 	<div>
-		<h3> <%= recipeInfo.title %>	</h3>
+		<h3 id="recipe_title"> <%= recipeInfo.title %>	</h3>
 	</div>
 	<div>
-		<h4>Ingredients:</h4>
+		<h4 id="recipe_ingredients">Ingredients:</h4>
 		<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
 			<li><%= ingredient.name %> </li>
 		<% }) %>
