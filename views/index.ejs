@@ -1,61 +1,60 @@
 <% include partials/header %>
 
-<div class="jumbotron text-center">
-	<h1 class="display-4">Weekly Recipe Generator</h1>
-	<hr class="my-4">
-</div>
-
-
-<form method="POST">
-	<table class="table">
-		<tr class="table-primary">
-			<th class="text-center">Sunday</th>
-			<th class="text-center">Monday</th>
-			<th class="text-center">Tuesday</th>
-			<th class="text-center">Wednesday</th>
-			<th class="text-center">Thursday</th>
-			<th class="text-center">Friday</th>
-			<th class="text-center">Saturday</th>
-		</tr>
-		<tr>
-		<td> <input type="text" name="query_sunday" value=<%=query_list.sunday%> placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_monday" value=<%=query_list.monday%> placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_tuesday" value=<%=query_list.tuesday%> placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_wednesday" value=<%=query_list.wednesday%> placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_thursday" value=<%=query_list.thursday%> placeholder="Enter Ingredients"> </td>
-		<td> <input type="text" name="query_friday" value=<%=query_list.friday%> placeholder="Enter Ingredients"> </td>
-		<td><input type="text" name="query_saturday" value=<%=query_list.saturday%> placeholder="Enter Ingredients"> </td>
-	</tr>
-	<tr>
-		<td> <button type="submit" value="Get Recipe" formaction="/sunday">Get Recipe</button> </td>
-		<td> <button type="submit" value="Get Recipe" formaction="/monday">Get Recipe</button> </td>
-		<td> <button type="submit" value="Get Recipe" formaction="/tuesday">Get Recipe</button> </td>
-		<td> <button type="submit" value="Get Recipe" formaction="/wednesday">Get Recipe</button> </td>
-		<td> <button type="submit" value="Get Recipe" formaction="/thursday">Get Recipe</button> </td>
-		<td> <button type="submit" value="Get Recipe" formaction="/friday">Get Recipe</button> </td>
-		<td> <button type="submit" value="Get Recipe" formaction="/saturday">Get Recipe</button> </td>
-	</tr>
-	</table>
-</form>
-
-<div>
-	<h3> <%= recipeInfo.title %>	</h3>
-</div>
-<div>
-	<h4>Ingredients:</h4>
-	<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
-		<li><%= ingredient.name %> </li>
-	<% }) %>
-</div>		
-<div>
-	<h4 id="direction">Directions:</h4>
-	<div>
-			<p> <%= recipeInfo.instructions %>	</p>
+<div class="container-fluid">
+	
+	<div class="jumbotron text-center">
+		<h1 class="display-4">Weekly Recipe Generator</h1>
+		<hr class="my-4">
 	</div>
-
+	<form method="POST">
+		<div class="container-fluid">
+			<div class="form-row">
+				<div id="day_name" class="col">Sunday</div>
+				<div id="day_name"  class="col">Monday</div>
+				<div id="day_name"  class="col">Tuesday</div>
+				<div id="day_name"  class="col">Wednesday</div>
+				<div id="day_name"  class="col">Thursday</div>
+				<div id="day_name"  class="col">Friday</div>
+				<div id="day_name"  class="col">Saturday</div>
+				
+				<div class="w-100"></div>
+			
+				<div class="col"> <input type="text" class="form-control" name="query_sunday" value=<%=query_list.sunday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input type="text" class="form-control" name="query_monday" value=<%=query_list.monday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input type="text" class="form-control" name="query_tuesday" value=<%=query_list.tuesday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input type="text" class="form-control" name="query_wednesday" value=<%=query_list.wednesday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input type="text" class="form-control" name="query_thursday" value=<%=query_list.thursday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input type="text" class="form-control" name="query_friday" value=<%=query_list.friday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input type="text" class="form-control" name="query_saturday" value=<%=query_list.saturday%> placeholder="Enter Ingredients"> </div>
+				
+				<div class="w-100"></div>
+				
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/sunday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/monday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/tuesday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/wednesday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/thursday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/friday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/saturday">Get Recipe</button> </div>
+			</div>
+		</div>
+	</form>
+	
+	<div>
+		<h3> <%= recipeInfo.title %>	</h3>
+	</div>
+	<div>
+		<h4>Ingredients:</h4>
+		<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
+			<li><%= ingredient.name %> </li>
+		<% }) %>
+	</div>		
+	<div>
+		<h4 id="direction">Directions:</h4>
+		<div>
+				<p> <%= recipeInfo.instructions %>	</p>
+		</div>
+	</div>
 </div>
-
-
-
 
 <% include partials/footer %>
