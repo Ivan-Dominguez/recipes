@@ -2,12 +2,10 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.my-4{
-    padding:10px;
-}
 
 #jumbotron_descr{
     font-size: 10px;
+    margin-bottom:5px;
 }
 
 #days_table{
