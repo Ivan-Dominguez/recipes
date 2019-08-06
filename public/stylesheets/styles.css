@@ -1,3 +1,15 @@
+#jumbotron_recipes{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.my-4{
+    padding:10px;
+}
+
+#jumbotron_descr{
+    font-size: 10px;
+}
+
 #days_table{
    border-style: solid;
     border-color: black;
@@ -34,7 +46,7 @@
     padding-top: 30px;
 }
 
-p{
+#recipe_directions{
     border-style: solid;
     border-color: black;
     border-width: 1px;

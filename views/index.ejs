@@ -1,10 +1,15 @@
 <% include partials/header %>
 
 <div class="container-fluid">
-	
-	<div class="jumbotron text-center">
-		<h1 class="display-4">Weekly Recipe Generator</h1>
+	<div id="jumbotron_recipes" class="jumbotron">
+		<h1 class="display-4">Weekly Recipe Generator.</h1>
+		<p class="lead">This web-app interfaces with the Spoonacular API to retrieve 
+		recipes based on the query entered by the user</p>
 		<hr class="my-4">
+		<p id=jumbotron_descr><strong>Front-End: </strong>Front-End: HTML, CSS, Bootstrap.
+		<strong>Back-End: </strong>Nodejs, Express, MongoDB</p>
+		<p id=jumbotron_descr><strong>Developed with: </strong>AWS C9.
+		<strong>Hosted in:</strong> Heroku.com</p>
 	</div>
 	<form method="POST">
 		<div id="days_table" class="container-fluid">
@@ -53,7 +58,7 @@
 		</div>
 	</div>		
 	<div>
-		<h4 id="directions">Directions:</h4>
+		<h4 id="recipe_directions">Directions:</h4>
 		<div>
 				<p> <%= recipeInfo.instructions %>	</p>
 		</div>
