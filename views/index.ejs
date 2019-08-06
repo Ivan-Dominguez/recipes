@@ -41,11 +41,16 @@
 	<div>
 		<h3 id="recipe_title"> <%= recipeInfo.title %>	</h3>
 	</div>
-	<div>
-		<h4 id="recipe_ingredients">Ingredients:</h4>
-		<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
+	<div class="form-row">
+		<div class="col">
+			<h4 id="recipe_ingredients">Ingredients:</h4>
+			<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
 			<li><%= ingredient.name %> </li>
-		<% }) %>
+			<% }) %>
+		</div>
+		<div class="col">
+			<img src="<%= recipeInfo.image %>"
+		</div>
 	</div>		
 	<div>
 		<h4 id="directions">Directions:</h4>

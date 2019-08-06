@@ -79,7 +79,7 @@ function makeAPICall(query,res){
 		return getRecipeInfo(recipeID);
 	})
 	.then((recipeInfo) => {
-		renderRecipe(recipeInfo, res);
+		res.render("index", {recipeInfo,query_list});
 	})
 	.catch((error)=>{
 		console.log(error.message);
@@ -139,10 +139,6 @@ function getRecipeInfo(recipeID){
 	});
 }
 
-function renderRecipe(recipeInfo, res){
-	
-	res.render("index", {recipeInfo,query_list});
-}
 
 const port = process.env.PORT || 8080;
 const ip = process.env.IP || "0.0.0.0";
