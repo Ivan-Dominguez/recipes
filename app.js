@@ -31,7 +31,7 @@ var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stirfy", wednesday:
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
-	var recipeInfo = {title:"Title: ", extendedIngredients:[""], instructions : ""};
+	var recipeInfo = {title:"Title: ", extendedIngredients:[], instructions: ""};
 	
 	res.render("index", {recipeInfo,query_list});
 });
