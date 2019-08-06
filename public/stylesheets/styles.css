@@ -33,11 +33,12 @@
 
 
 #recipe_title{
-    padding-top: 30px;
+    padding-top: 40px;
 }
 
 #recipe_ingredients{
     padding-top: 30px;
+    padding-bottom: 40px;
 }
 
 #directions{
