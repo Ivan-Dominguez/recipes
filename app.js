@@ -26,8 +26,8 @@ var campgroundSchema = new mongoose.Schema({
 });
 
 var Campground = mongoose.model("Campground", campgroundSchema);
-var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stirfy", wednesday:"Pasta",
-					thursday:"Tofu", friday:"Eggs", saturday:"Lentils"};
+var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
+					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
