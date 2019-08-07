@@ -1,6 +1,8 @@
 <% include partials/header %>
 
 <div class="container-fluid">
+	
+	<!-------------------------------Jumbotron--------------------------------->
 	<div id="jumbotron_recipes" class="jumbotron">
 		<h1 class="display-4">Weekly Recipe Generator.</h1>
 		<p class="lead">
@@ -23,6 +25,7 @@
 			</a>
 		</p>
 	</div>
+	<!-------------------------------Week Table-------------------------------->
 	<form method="POST">
 		<div id="days_table" class="container-fluid">
 			<div class="form-row">
@@ -54,7 +57,7 @@
 			</div>
 		</div>
 	</form>
-	<!-------------------------------Recipe Info---------------------------------->
+	<!------------------------------Recipe Info-------------------------------->
 	<div id="recipe_title">
 		<h3 class=lead"> <%= recipeInfo.title %>	</h3>
 	</div>

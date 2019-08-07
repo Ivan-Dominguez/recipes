@@ -91,13 +91,15 @@ function getRecipeID(query){
 		var requestRecipeID = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search");
 		var host = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 		var key = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
+		var offset = Math.floor((Math.random() * 10)).toString();
+		console.log(offset);
 		
 		requestRecipeID.query({
 			"diet": "vegetarian",
 			"excludeIngredients": "coconut",
 			"intolerances": "",
-			"number": "10",
-			"offset": "0",
+			"number": "1",
+			"offset": offset,
 			"type": "main course",
 			"query": query
 		});
