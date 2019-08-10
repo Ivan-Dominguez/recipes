@@ -21,12 +21,12 @@ app.set("view engine", "ejs");
 
 var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
 					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
-var diet="";
+var diet="vegetarian";
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
 	var recipeInfo = {title:"Title: ", extendedIngredients:[], instructions: ""};
-	res.render("index", {recipeInfo,query_list});
+	res.render("index", {recipeInfo,query_list, diet});
 });
 
 app.post("/sunday", function(req,res){
@@ -79,7 +79,7 @@ function makeAPICall(query, diet, res){
 		return getRecipeInfo(recipeID);
 	})
 	.then((recipeInfo) => {
-		res.render("index", {recipeInfo,query_list});
+		res.render("index", {recipeInfo, query_list, diet});
 	})
 	.catch((error)=>{
 		console.log(error.message);

@@ -58,15 +58,15 @@
 	<!-----------------------------Radio Buttons------------------------------->
 			<div id="diet_radio_btn">
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" name="diet_radio_option" id="inlineRadio1" value="vegetarian" checked>
+				  <input class="form-check-input" type="radio" name="diet_radio_option" value="vegetarian" <%= diet === "vegetarian" ? 'checked' : '' %> >
 				  <label class="form-check-label" for="inlineRadio1">Vegetarian</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" name="diet_radio_option" id="inlineRadio2" value="vegan">
+				  <input class="form-check-input" type="radio" name="diet_radio_option" value="vegan"<%= diet === "vegan" ? 'checked' : '' %> >
 				  <label class="form-check-label" for="inlineRadio2">Vegan</label>
 				</div>
 				<div class="form-check form-check-inline">
-				  <input class="form-check-input" type="radio" name="diet_radio_option" id="inlineRadio3" value="">
+				  <input class="form-check-input" type="radio" name="diet_radio_option" value=""<%= diet === "" ? 'checked' : '' %> >
 				  <label class="form-check-label" for="inlineRadio3">Regular</label>
 				</div>
 			</div>
