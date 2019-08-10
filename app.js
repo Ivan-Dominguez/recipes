@@ -18,63 +18,63 @@ mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpca
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
-//Schema setup
-var campgroundSchema = new mongoose.Schema({
-	name: String,
-	image: String,
-	description: String
-});
 
-var Campground = mongoose.model("Campground", campgroundSchema);
 var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
 					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
+var diet="";
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
 	var recipeInfo = {title:"Title: ", extendedIngredients:[], instructions: ""};
-	
 	res.render("index", {recipeInfo,query_list});
 });
 
 app.post("/sunday", function(req,res){
 	query_list.sunday = req.body.query_sunday;
-	makeAPICall(query_list.sunday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.sunday, diet, res);
 });
 
 app.post("/monday", function(req,res){
 	query_list.monday = req.body.query_monday;
-	makeAPICall(query_list.monday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.monday, diet, res);
 });
 
 app.post("/tuesday", function(req,res){
 	query_list.tuesday = req.body.query_tuesday;
-	makeAPICall(query_list.tuesday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.tuesday, diet, res);
 });
 
 app.post("/wednesday", function(req,res){
 	query_list.wednesday = req.body.query_wednesday;
-	makeAPICall(query_list.wednesday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.wednesday, diet, res);
 });
 
 app.post("/thursday", function(req,res){
 	query_list.thursday = req.body.query_thursday;
-	makeAPICall(query_list.thursday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.thursday, diet, res);
 });
 
 app.post("/friday", function(req,res){
 	query_list.friday = req.body.query_friday;
-	makeAPICall(query_list.friday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.friday, diet, res);
 });
 
 app.post("/saturday", function(req,res){
 	query_list.saturday = req.body.query_saturday;
-	makeAPICall(query_list.saturday,res);
+	diet = req.body.diet_radio_option;
+	makeAPICall(query_list.saturday, diet, res);
 });
 
 
 //******************** API's functions ********************//
-function makeAPICall(query,res){
-	getRecipeID(query)
+function makeAPICall(query, diet, res){
+	getRecipeID(diet, query)
 	.then((recipeID) => {
 		return getRecipeInfo(recipeID);
 	})
@@ -86,16 +86,15 @@ function makeAPICall(query,res){
 	});
 }
 
-function getRecipeID(query){
+function getRecipeID(diet, query){
 	return new Promise((resolve, reject) => {
 		var requestRecipeID = unirest("GET", "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search");
 		var host = "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com";
 		var key = "c27d293516msh90ec9dbd389e192p193c79jsne8fb26090060";
 		var offset = Math.floor((Math.random() * 10)).toString();
-		console.log(offset);
 		
 		requestRecipeID.query({
-			"diet": "vegetarian",
+			"diet": diet,
 			"excludeIngredients": "coconut",
 			"intolerances": "",
 			"number": "1",

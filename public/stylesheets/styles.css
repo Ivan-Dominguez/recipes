@@ -14,6 +14,12 @@
     border-width: 1px;
 }
 
+#diet_radio_btn{
+   text-align: center;
+   padding-top: 20px;
+  
+}
+
 
 .form-row{
      padding: 5px;

@@ -55,8 +55,24 @@
 				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/friday">Get Recipe</button> </div>
 				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/saturday">Get Recipe</button> </div>
 			</div>
+	<!-----------------------------Radio Buttons------------------------------->
+			<div id="diet_radio_btn">
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="diet_radio_option" id="inlineRadio1" value="vegetarian" checked>
+				  <label class="form-check-label" for="inlineRadio1">Vegetarian</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="diet_radio_option" id="inlineRadio2" value="vegan">
+				  <label class="form-check-label" for="inlineRadio2">Vegan</label>
+				</div>
+				<div class="form-check form-check-inline">
+				  <input class="form-check-input" type="radio" name="diet_radio_option" id="inlineRadio3" value="">
+				  <label class="form-check-label" for="inlineRadio3">Regular</label>
+				</div>
+			</div>
 		</div>
 	</form>
+
 	<!------------------------------Recipe Info-------------------------------->
 	<div id="recipe_title">
 		<h3 class=lead"> <%= recipeInfo.title %>	</h3>
