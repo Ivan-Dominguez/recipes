@@ -18,7 +18,26 @@ mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpca
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
+//*************************** MongoDB setup ***************************//
+mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpcamp?retryWrites=true&w=majority", {
+				 useNewUrlParser:true,
+				 useCreateIndex: true
+				 }).then(()=>{
+	console.log("Connected to DB");
+}).catch(err => {
+	console.log("ERROR:", err.message);
+});
 
+var recipeSchema = new mongoose.Schema({
+	title: String,
+	ingredients: {String},
+	image: String,
+	instructions: String
+});
+
+var Recipe = mongoose.model("Recipe", recipeSchema);
+
+//*************************** Global variables ***************************//
 var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
 					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
 var diet="vegetarian";
@@ -73,6 +92,10 @@ app.post("/saturday", function(req,res){
 
 app.get("/favorites", function(req,res){
 	res.render("favorite_recipes.ejs");
+});
+
+app.post("/save_recipe", function(req, res){
+		
 });
 
 
