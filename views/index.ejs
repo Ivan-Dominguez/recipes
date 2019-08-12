@@ -15,7 +15,7 @@
 			<strong>Back-End: </strong>Nodejs, Express, MongoDB
 		</p>
 		<p id=jumbotron_descr>
-			<strong>Developed with: </strong>AWS C9.
+			<strong>Developed with: </strong>AWS EC2 (C9).
 			<strong>Hosted in:</strong> Heroku.com
 		</p>
 		<p id=jumbotron_descr>
@@ -75,7 +75,8 @@
 
 	<!------------------------------Recipe Info-------------------------------->
 	<div id="recipe_title">
-		<h3 class=lead"> <%= recipeInfo.title %>	</h3>
+		<h3> <%= recipeInfo.title %> </h3>
+		<button type="submit" class="btn btn-success btn-sm" value="Add to Favorites" >Add to Favorites</button>
 	</div>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">

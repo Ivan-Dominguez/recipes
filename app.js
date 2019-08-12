@@ -71,6 +71,10 @@ app.post("/saturday", function(req,res){
 	makeAPICall(query_list.saturday, diet, res);
 });
 
+app.get("/favorites", function(req,res){
+	res.render("favorite_recipes.ejs");
+});
+
 
 //******************** API's functions ********************//
 function makeAPICall(query, diet, res){
