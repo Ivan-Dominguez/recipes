@@ -6,20 +6,11 @@ var unirest = require("unirest");
 
 //*************************** APP config ***************************//
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpcamp?retryWrites=true&w=majority", {
-				 useNewUrlParser:true,
-				 useCreateIndex: true
-				 }).then(()=>{
-	console.log("Connected to DB");
-}).catch(err => {
-	console.log("ERROR:", err.message);
-});
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 //*************************** MongoDB setup ***************************//
-mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/yelpcamp?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/recipes?retryWrites=true&w=majority", {
 				 useNewUrlParser:true,
 				 useCreateIndex: true
 				 }).then(()=>{
@@ -45,7 +36,7 @@ var diet="vegetarian";
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
-	res.render("index", {recipeInfo, query_list, diet});
+	res.render("index", {recipeInfo:last_recipe, query_list:query_list, diet:diet});
 });
 
 app.post("/sunday", function(req,res){
@@ -94,7 +85,22 @@ app.get("/favorites", function(req,res){
 	res.render("favorite_recipes.ejs");
 });
 
+app.post("/index", function(req, res){
+	var new_recipe = {
+		title: last_recipe.title,
+		ingredients: last_recipe.extendedIngredients,
+		instructions: last_recipe.instructions
+	};
 
+	Recipe.create(new_recipe, function(err, new_recipe){
+		if(err){
+			console.log(err);
+		}else{
+			console.log("recipe added");
+			res.redirect("index");	
+		}
+	});	
+});
 
 
 //******************** API's functions ********************//
