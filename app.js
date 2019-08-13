@@ -40,12 +40,12 @@ var Recipe = mongoose.model("Recipe", recipeSchema);
 //*************************** Global variables ***************************//
 var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
 					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
+var last_recipe = {title:"Title: ", extendedIngredients:[], instructions: ""};
 var diet="vegetarian";
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
-	var recipeInfo = {title:"Title: ", extendedIngredients:[], instructions: ""};
-	res.render("index", {recipeInfo,query_list, diet});
+	res.render("index", {recipeInfo, query_list, diet});
 });
 
 app.post("/sunday", function(req,res){
@@ -94,9 +94,7 @@ app.get("/favorites", function(req,res){
 	res.render("favorite_recipes.ejs");
 });
 
-app.post("/save_recipe", function(req, res){
-		
-});
+
 
 
 //******************** API's functions ********************//
@@ -106,6 +104,10 @@ function makeAPICall(query, diet, res){
 		return getRecipeInfo(recipeID);
 	})
 	.then((recipeInfo) => {
+		last_recipe.title = recipeInfo.title;
+		last_recipe.extendedIngredients = recipeInfo.extendedIngredients;
+		last_recipe.instructions = recipeInfo.instructions;
+		
 		res.render("index", {recipeInfo, query_list, diet});
 	})
 	.catch((error)=>{
