@@ -76,8 +76,10 @@
 	<!------------------------------Recipe Info-------------------------------->
 	<div id="recipe_title">
 		<h3> <%= recipeInfo.title %> </h3>
-		<button type="submit" class="btn btn-success btn-sm" value="Add to Favorites" >Add to Favorites</button>
 	</div>
+	<form method="POST">
+		<button type="submit" class="btn btn-success btn-sm" value="Add to Favorites" formaction="/favorites">Add to Favorites</button>
+	</form>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">
 			<h4>Ingredients:</h4>
