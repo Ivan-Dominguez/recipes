@@ -12,13 +12,18 @@
 				<img src="<%=recipe.image%>" class="img-thumbnail" >
 			</div>
 			<div class="caption">
-				<p><%=recipe.title.substring(0, 30)%></p>
+				<p><%=recipe.title.substring(0, 25)%></p>
 			</div>
-				<a href="/recipes/favorites/<%=recipe._id%>" class="btn btn-outline-primary btn-sm">See</a>
-				
-				<form action="/recipes/favorites/<%=recipe._id%>?_method=DELETE" method="POST">
-				    <button class="btn btn-outline-danger btn-sm">Delete</button>
-				</form>
+			<div class="form-row">
+			    <div class="col">
+                    <a href="/recipes/favorites/<%=recipe._id%>" class="btn btn-outline-primary btn-sm">View</a>
+			    </div>
+			    <div class="col">
+                    <form id="delete" action="/recipes/favorites/<%=recipe._id%>?_method=DELETE" method="POST">
+				        <button class="btn btn-outline-danger btn-sm">Remove</button>
+				    </form>			        
+			    </div>
+			</div>
 		</div>
 		<%});%>
     </div>
