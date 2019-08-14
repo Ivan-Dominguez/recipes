@@ -1,0 +1,29 @@
+<% include partials/header %>
+
+<div class="container">
+    <header class="page-header">
+        <h1>Favorite Recipes</h1>
+    </header>
+    
+    <div id="favorites_grid" class="row row-eq-height">
+		<% recipes.forEach(function(recipe){%>
+		<div class="col col-sm-6 col-md-3 border">
+			<div class="img">
+				<img src="<%=recipe.image%>" class="img-thumbnail" >
+			</div>
+			<div class="caption">
+				<p><%=recipe.title.substring(0, 30)%></p>
+			</div>
+			<p>
+				<a href="" class="btn btn-outline-primary btn-sm">See</a>
+				<a href="" class="btn btn-outline-danger btn-sm">Delete</a>
+			</p>
+		</div>
+		<%});%>
+    </div>
+    <div>
+        <a href="/" class="btn btn-success">Go Back</a>
+    </div>
+</div>
+
+<% include partials/footer %>

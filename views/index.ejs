@@ -7,7 +7,7 @@
 		<h1 class="display-4">Weekly Recipe Generator.</h1>
 		<p class="lead">
 			This web-app interfaces with the Spoonacular API to retrieve 
-			recipes based on the query entered by the user
+			recipes based on the query entered by the user.
 		</p>
 		<hr class="my-3">
 		<p id=jumbotron_descr>
@@ -38,13 +38,13 @@
 				<div id="day_name"  class="col">Saturday</div>
 			</div>
 			<div class="form-row">
-				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_sunday" value=<%=query_list.sunday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_monday" value=<%=query_list.monday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_tuesday" value=<%=query_list.tuesday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_wednesday" value=<%=query_list.wednesday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_thursday" value=<%=query_list.thursday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_friday" value=<%=query_list.friday%> placeholder="Enter Ingredients"> </div>
-				<div class="col"> <input id="day_query"  type="text" class="form-control" name="query_saturday" value=<%=query_list.saturday%> placeholder="Enter Ingredients"> </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_sunday" required value=<%=query_list.sunday%> > </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_monday" required value=<%=query_list.monday%> > </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_tuesday" required value=<%=query_list.tuesday%> > </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_wednesday" required value=<%=query_list.wednesday%> > </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_thursday" required value=<%=query_list.thursday%> > </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_friday" required value=<%=query_list.friday%> > </div>
+				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_saturday" required value=<%=query_list.saturday%> > </div>
 			</div>
 			<div class="form-row">	
 				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/sunday">Get Recipe</button> </div>
@@ -78,7 +78,9 @@
 		<h3> <%= recipeInfo.title %> </h3>
 	</div>
 	<form method="POST">
-		<button type="submit" class="btn btn-success btn-sm" value="Add to Favorites" formaction="/favorites">Add to Favorites</button>
+		<button type="submit" class="btn btn-success btn-sm" formaction="/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>
+			Add to Favorites
+		</button>
 	</form>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">
