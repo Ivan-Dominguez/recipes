@@ -41,13 +41,7 @@
     padding-bottom: 40px;
 }
 
-#directions{
-    padding-top: 30px;
-}
-
 #recipe_directions{
-    border-style: solid;
-    border-color: black;
     border-width: 1px;
     padding: 15px;
 }

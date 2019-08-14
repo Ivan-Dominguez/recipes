@@ -26,8 +26,8 @@
 		</p>
 	</div>
 	<!-------------------------------Week Table-------------------------------->
-	<form method="POST">
-		<div class="container-fluid border border-dark">
+	<form id="query_form" method="POST">
+		<div class="container-fluid border border-dark rounded">
 			<div class="form-row">
 				<div id="day_name" class="col">Sunday</div>
 				<div id="day_name"  class="col">Monday</div>
@@ -77,10 +77,10 @@
 	<div id="recipe_title">
 		<h3> <%= recipeInfo.title %> </h3>
 	</div>
-	<form method="POST">
-		<button type="submit" class="btn btn-success btn-sm" formaction="/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>Add to Favorites</button>
-	</form>
-	<a href="/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
+	<div>
+		<button type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>Add to Favorites</button>
+		<a href="/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
+	</div>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">
 			<h4>Ingredients:</h4>
@@ -92,7 +92,7 @@
 			<img src="<%= recipeInfo.image %>" class="img-fluid">
 		</div>		
 	</div>
-	<div id="recipe_directions">
+	<div id="recipe_directions" class="border border-dark rounded">
 		<h4>Directions:</h4>
 		<div>
 				<p> <%= recipeInfo.instructions %>	</p>
