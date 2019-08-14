@@ -36,7 +36,7 @@ var Recipe = mongoose.model("Recipe", recipeSchema);
 
 var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
 					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
-var last_recipe = {title:"Title: ", extendedIngredients:[], image:"", instructions: ""};
+var last_recipe = {title:"", extendedIngredients:[], image:"", instructions: ""};
 var diet="vegetarian";
 
 //*************************** RESTful routes ***************************//
@@ -48,7 +48,7 @@ app.get("/", function(req, res){
 
 //RECIPE HOME
 app.get("/recipes", function(req, res){
-	res.render("index", {recipeInfo:last_recipe, query_list:query_list, diet:diet});
+	makeAPICall("Soup", "vegetarian", res);
 });
 
 //QUERIES FOR EACH DAY OF THE WEEK
