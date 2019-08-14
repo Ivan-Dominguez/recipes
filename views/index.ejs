@@ -12,7 +12,7 @@
 		<hr class="my-3">
 		<p id=jumbotron_descr>
 			<strong>Front-End: </strong>HTML, CSS, Bootstrap.
-			<strong>Back-End: </strong>Nodejs, Express, MongoDB
+			<strong>Back-End: </strong>Nodejs, Express, MongoDB.
 		</p>
 		<p id=jumbotron_descr>
 			<strong>Developed with: </strong>AWS EC2 (C9).
@@ -27,7 +27,7 @@
 	</div>
 	<!-------------------------------Week Table-------------------------------->
 	<form method="POST">
-		<div id="days_table" class="container-fluid">
+		<div class="container-fluid border border-dark">
 			<div class="form-row">
 				<div id="day_name" class="col">Sunday</div>
 				<div id="day_name"  class="col">Monday</div>
@@ -78,10 +78,9 @@
 		<h3> <%= recipeInfo.title %> </h3>
 	</div>
 	<form method="POST">
-		<button type="submit" class="btn btn-success btn-sm" formaction="/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>
-			Add to Favorites
-		</button>
+		<button type="submit" class="btn btn-success btn-sm" formaction="/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>Add to Favorites</button>
 	</form>
+	<a href="/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">
 			<h4>Ingredients:</h4>
