@@ -5,11 +5,13 @@ var	mongoose = require("mongoose");
 var unirest = require("unirest");
 
 //*************************** APP config ***************************//
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 
 //*************************** MongoDB setup ***************************//
+
 mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/recipes?retryWrites=true&w=majority", {
 				 useNewUrlParser:true,
 				 useCreateIndex: true
@@ -29,20 +31,25 @@ var recipeSchema = new mongoose.Schema({
 var Recipe = mongoose.model("Recipe", recipeSchema);
 
 //*************************** Global variables ***************************//
+
 var query_list = {sunday:"Soup", monday:"Sandwich", tuesday:"Stew", wednesday:"Pasta",
 					thursday:"Baked", friday:"Eggs", saturday:"Lentils"};
 var last_recipe = {title:"Title: ", extendedIngredients:[], image:"", instructions: ""};
 var diet="vegetarian";
 
 //*************************** RESTful routes ***************************//
+
+//ROOT
 app.get("/", function(req, res){
 	res.redirect("/recipes");
 });
 
+//RECIPE HOME
 app.get("/recipes", function(req, res){
 	res.render("index", {recipeInfo:last_recipe, query_list:query_list, diet:diet});
 });
 
+//QUERIES FOR EACH DAY OF THE WEEK
 app.post("/recipes/sunday", function(req,res){
 	query_list.sunday = req.body.query_sunday;
 	diet = req.body.diet_radio_option;
@@ -85,6 +92,7 @@ app.post("/recipes/saturday", function(req,res){
 	makeAPICall(query_list.saturday, diet, res);
 });
 
+//SHOW FAVORITES
 app.get("/recipes/favorites", function(req, res){
 	Recipe.find({}, function(err, recipes){
 		if(err){
@@ -95,6 +103,7 @@ app.get("/recipes/favorites", function(req, res){
 	});
 });
 
+//ADD TO FAVORITES
 app.post("/recipes/favorites", function(req, res){
 	var new_recipe = {
 		title: last_recipe.title,
@@ -113,6 +122,7 @@ app.post("/recipes/favorites", function(req, res){
 	});	
 });
 
+//ACCESS ONE OF FAVORITES
 app.get("/recipes/favorites/:id", function(req, res){
 	Recipe.findById(req.params.id, function(err, found){
 		if(err){
@@ -122,6 +132,9 @@ app.get("/recipes/favorites/:id", function(req, res){
 		}
 	});	
 });
+
+//DELETE FAVORITE
+
 
 
 //******************** API's functions ********************//
