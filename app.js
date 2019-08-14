@@ -3,11 +3,13 @@ var	app = express();
 var	bodyParser = require("body-parser");
 var	mongoose = require("mongoose");
 var unirest = require("unirest");
+var methodOverride = require("method-override");
 
 //*************************** APP config ***************************//
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 //*************************** MongoDB setup ***************************//
@@ -122,7 +124,7 @@ app.post("/recipes/favorites", function(req, res){
 	});	
 });
 
-//ACCESS ONE OF FAVORITES
+//SHOW ONE OF FAVORITES
 app.get("/recipes/favorites/:id", function(req, res){
 	Recipe.findById(req.params.id, function(err, found){
 		if(err){
@@ -133,11 +135,20 @@ app.get("/recipes/favorites/:id", function(req, res){
 	});	
 });
 
-//DELETE FAVORITE
+//DELETE A FAVORITE
+app.delete("/recipes/favorites/:id", function(req,res){
+	console.log("delete route");
+	Recipe.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			console.log(err);
+		}else{
+			res.redirect("/recipes/favorites");
+		}
+	});
+});
 
 
-
-//******************** API's functions ********************//
+//******************** SPOONACULAR API's FUNCTIONS ********************//
 function makeAPICall(query, diet, res){
 	getRecipeID(diet, query)
 	.then((recipeID) => {

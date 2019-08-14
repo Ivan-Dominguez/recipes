@@ -14,10 +14,11 @@
 			<div class="caption">
 				<p><%=recipe.title.substring(0, 30)%></p>
 			</div>
-			<p>
 				<a href="/recipes/favorites/<%=recipe._id%>" class="btn btn-outline-primary btn-sm">See</a>
-				<a href="" class="btn btn-outline-danger btn-sm">Delete</a>
-			</p>
+				
+				<form action="/recipes/favorites/<%=recipe._id%>?_method=DELETE" method="POST">
+				    <button class="btn btn-outline-danger btn-sm">Delete</button>
+				</form>
 		</div>
 		<%});%>
     </div>
