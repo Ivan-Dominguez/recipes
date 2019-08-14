@@ -47,13 +47,13 @@
 				<div class="col"> <input id="day_query" type="text" class="form-control" name="query_saturday" required value=<%=query_list.saturday%> > </div>
 			</div>
 			<div class="form-row">	
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/sunday">Get Recipe</button> </div>
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/monday">Get Recipe</button> </div>
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/tuesday">Get Recipe</button> </div>
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/wednesday">Get Recipe</button> </div>
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/thursday">Get Recipe</button> </div>
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/friday">Get Recipe</button> </div>
-				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/saturday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/sunday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/monday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/tuesday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/wednesday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/thursday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/friday">Get Recipe</button> </div>
+				<div class="col"> <button type="submit" class="btn btn-primary btn-sm" value="Get Recipe" formaction="/recipes/saturday">Get Recipe</button> </div>
 			</div>
 	<!-----------------------------Radio Buttons------------------------------->
 			<div id="diet_radio_btn">
@@ -78,8 +78,8 @@
 		<h3> <%= recipeInfo.title %> </h3>
 	</div>
 	<div>
-		<button type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>Add to Favorites</button>
-		<a href="/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
+		<button type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/recipes/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>Add to Favorites</button>
+		<a href="/recipes/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
 	</div>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">

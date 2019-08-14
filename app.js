@@ -36,52 +36,56 @@ var diet="vegetarian";
 
 //*************************** RESTful routes ***************************//
 app.get("/", function(req, res){
+	res.redirect("/recipes");
+});
+
+app.get("/recipes", function(req, res){
 	res.render("index", {recipeInfo:last_recipe, query_list:query_list, diet:diet});
 });
 
-app.post("/sunday", function(req,res){
+app.post("/recipes/sunday", function(req,res){
 	query_list.sunday = req.body.query_sunday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.sunday, diet, res);
 });
 
-app.post("/monday", function(req,res){
+app.post("/recipes/monday", function(req,res){
 	query_list.monday = req.body.query_monday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.monday, diet, res);
 });
 
-app.post("/tuesday", function(req,res){
+app.post("/recipes/tuesday", function(req,res){
 	query_list.tuesday = req.body.query_tuesday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.tuesday, diet, res);
 });
 
-app.post("/wednesday", function(req,res){
+app.post("/recipes/wednesday", function(req,res){
 	query_list.wednesday = req.body.query_wednesday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.wednesday, diet, res);
 });
 
-app.post("/thursday", function(req,res){
+app.post("/recipes/thursday", function(req,res){
 	query_list.thursday = req.body.query_thursday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.thursday, diet, res);
 });
 
-app.post("/friday", function(req,res){
+app.post("/recipes/friday", function(req,res){
 	query_list.friday = req.body.query_friday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.friday, diet, res);
 });
 
-app.post("/saturday", function(req,res){
+app.post("/recipes/saturday", function(req,res){
 	query_list.saturday = req.body.query_saturday;
 	diet = req.body.diet_radio_option;
 	makeAPICall(query_list.saturday, diet, res);
 });
 
-app.get("/favorites", function(req, res){
+app.get("/recipes/favorites", function(req, res){
 	Recipe.find({}, function(err, recipes){
 		if(err){
 			console.log(err);
@@ -91,7 +95,7 @@ app.get("/favorites", function(req, res){
 	});
 });
 
-app.post("/favorites", function(req, res){
+app.post("/recipes/favorites", function(req, res){
 	var new_recipe = {
 		title: last_recipe.title,
 		ingredients: last_recipe.extendedIngredients,
@@ -104,7 +108,7 @@ app.post("/favorites", function(req, res){
 			console.log(err);
 		}else{
 			console.log("recipe added");
-			res.redirect("/");	
+			res.redirect("/recipes/");	
 		}
 	});	
 });
