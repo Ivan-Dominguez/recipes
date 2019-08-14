@@ -1,0 +1,31 @@
+<% include partials/header %>
+
+<!------------------------------Recipe Info-------------------------------->
+	<div id="recipe_title">
+		<h3> <%= recipeInfo.title %> </h3>
+	</div>
+	<div class="form-row" id="recipe_ingredients">
+		<div class="col">
+			<h4>Ingredients:</h4>
+			<% recipeInfo.extendedIngredients.forEach((ingredient) => {  %>
+			<li><%= ingredient.name %> </li>
+			<% }) %>
+		</div>
+		<div class="col">
+			<img src="<%= recipeInfo.image %>" class="img-fluid">
+		</div>		
+	</div>
+	<div id="recipe_directions" class="border border-dark rounded">
+		<h4>Directions:</h4>
+		<div>
+				<p> <%= recipeInfo.instructions %>	</p>
+		</div>
+	</div>
+	<div>
+        <a href="/recipes/favorites" class="btn btn-success">Back to Favorites</a>
+    </div>
+
+
+
+
+<% include partials/footer %>

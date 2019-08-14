@@ -21,7 +21,7 @@ mongoose.connect("mongodb+srv://ivan:Ivan2009^@cluster0-1qvlq.mongodb.net/recipe
 
 var recipeSchema = new mongoose.Schema({
 	title: String,
-	ingredients: Array,
+	extendedIngredients: Object,
 	image: String,
 	instructions: String
 });
@@ -98,7 +98,7 @@ app.get("/recipes/favorites", function(req, res){
 app.post("/recipes/favorites", function(req, res){
 	var new_recipe = {
 		title: last_recipe.title,
-		ingredients: last_recipe.extendedIngredients,
+		extendedIngredients: last_recipe.extendedIngredients,
 		image: last_recipe.image,
 		instructions: last_recipe.instructions
 	};
@@ -109,6 +109,16 @@ app.post("/recipes/favorites", function(req, res){
 		}else{
 			console.log("recipe added");
 			res.redirect("/recipes/");	
+		}
+	});	
+});
+
+app.get("/recipes/favorites/:id", function(req, res){
+	Recipe.findById(req.params.id, function(err, found){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("show", {recipeInfo:found})
 		}
 	});	
 });

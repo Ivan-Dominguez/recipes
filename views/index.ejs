@@ -78,7 +78,7 @@
 		<h3> <%= recipeInfo.title %> </h3>
 	</div>
 	<div>
-		<button type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/recipes/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %>>Add to Favorites</button>
+		<button type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/recipes/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %> >Add to Favorites</button>
 		<a href="/recipes/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
 	</div>
 	<div class="form-row" id="recipe_ingredients">
