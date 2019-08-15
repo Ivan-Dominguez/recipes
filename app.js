@@ -48,7 +48,12 @@ app.get("/", function(req, res){
 
 //RECIPE HOME
 app.get("/recipes", function(req, res){
-	makeAPICall("Soup", "vegetarian", res);
+	if(last_recipe.title===""){
+		makeAPICall("Soup", "vegetarian", res);
+	}else{
+		res.render("index", {recipeInfo:last_recipe, query_list:query_list, diet:diet});
+	}
+	
 });
 
 //QUERIES FOR EACH DAY OF THE WEEK
