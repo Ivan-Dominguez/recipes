@@ -1,4 +1,15 @@
+#navbar{
+    background-color: rgb(244,164,96);
+    margin-bottom: 20px;
+}
+
+
+/*.container-fluid{*/
+/*    background-color: rgb(255,250,240);*/
+/*}*/
+
 #jumbotron_recipes{
+    background-color: rgb(255,250,240);
     padding-top: 10px;
     padding-bottom: 10px;
 }
