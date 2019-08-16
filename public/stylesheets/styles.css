@@ -2,6 +2,9 @@
     background-color: rgb(244,164,96);
     margin-bottom: 20px;
 }
+.nav-link{
+    color: gray;
+}
 
 
 /*.container-fluid{*/
@@ -30,19 +33,20 @@
      padding: 5px;
 } 
  
- #day_name{
-     background-color: rgb(149, 192, 234);
-     text-align: center;
-     padding: 5px;
-     font-weight: bold;
- }
+#day_name{
+ background-color: rgb(244,164,96);
+ text-align: center;
+ padding: 5px;
+ font-weight: bold;
+ border: 1px solid gray;
+ margin:2px;
+}
+
+#get_recipe_btn{
+    background-color: rgb(178,34,34);
+    border-color: rgb(165,42,42); 
+}
  
- #day_name{
-      border: 1px solid gray;
-      margin:2px;
- }
-
-
 #recipe_title{
     padding-top: 40px;
 }
