@@ -2,6 +2,14 @@
     background-color: rgb(244,164,96);
     margin-bottom: 20px;
 }
+.navbar-nav {
+  flex-direction: row;
+}
+
+.navbar-nav li {
+  padding: 5px;
+}
+
 .nav-link{
     color: gray;
 }
