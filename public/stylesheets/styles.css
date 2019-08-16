@@ -43,7 +43,7 @@
 }
 
 #get_recipe_btn{
-    background-color: rgb(178,34,34);
+    background-color: rgb(165,42,42);
     border-color: rgb(165,42,42); 
 }
  
@@ -62,5 +62,16 @@
 }
 #favorites_grid{
     padding-bottom: 20px;
+}
+
+#add_to_favorite_btn{
+    background-color: rgb(165,42,42);
+    border-color: rgb(165,42,42);
+    
+}
+
+#go_to_favorite_btn{
+    background-color: rgb(244,164,96);
+    border-color: rgb(244,164,96);
 }
 

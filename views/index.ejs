@@ -27,7 +27,7 @@
 	</div>
 	<!-------------------------------Week Table-------------------------------->
 	<form id="query_form" method="POST">
-		<div class="container-fluid border border-dark rounded">
+		<div class="container-fluid border rounded">
 			<div class="form-row">
 				<div id="day_name" class="col">Sunday</div>
 				<div id="day_name"  class="col">Monday</div>
@@ -78,8 +78,8 @@
 		<h3> <%= recipeInfo.title %> </h3>
 	</div>
 	<div>
-		<button type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/recipes/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %> >Add to Favorites</button>
-		<a href="/recipes/favorites" class="btn btn-warning btn-sm">Go to Favorites</a>
+		<button id="add_to_favorite_btn" type="submit" class="btn btn-success btn-sm" form="query_form" formaction="/recipes/favorites" <%= recipeInfo.image === "" ? ' disabled' : '' %> >Add to Favorites</button>
+		<a id="go_to_favorite_btn" href="/recipes/favorites" class="btn btn-danger btn-sm">Go to Favorites</a>
 	</div>
 	<div class="form-row" id="recipe_ingredients">
 		<div class="col">

@@ -12,15 +12,15 @@
 				<img src="<%=recipe.image%>" class="img-thumbnail" >
 			</div>
 			<div class="caption">
-				<h5><%=recipe.title.substring(0, 32)%></h5>
+				<h5><%=recipe.title.substring(0, 35) + "..."%></h5>
 			</div>
 			<div class="form-row">
 			    <div class="col">
-                    <a href="/recipes/favorites/<%=recipe._id%>" class="btn btn-outline-primary btn-sm">View</a>
+                    <a id="go_to_favorite_btn" href="/recipes/favorites/<%=recipe._id%>" class="btn btn-danger btn-sm">View</a>
 			    </div>
 			    <div class="col">
                     <form id="delete" action="/recipes/favorites/<%=recipe._id%>?_method=DELETE" method="POST">
-				        <button class="btn btn-outline-danger btn-sm">Remove</button>
+				        <button class="btn btn-danger btn-sm">Remove</button>
 				    </form>			        
 			    </div>
 			</div>
