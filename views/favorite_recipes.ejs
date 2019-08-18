@@ -1,7 +1,7 @@
 <% include partials/header %>
 
 <div class="container">
-    <h3 class="display-4">Favorite Recipes</h3>
+    <h4 class="display-4">Favorite Recipes</h4>
     <div id="favorites_grid" class="row row-eq-height">
 		<% recipes.forEach(function(recipe){%>
 		<div class="col col-sm-6 col-md-3 border">
@@ -9,7 +9,7 @@
 				<img src="<%=recipe.image%>" class="img-thumbnail" >
 			</div>
 			<div class="caption">
-				<h5><%=recipe.title.substring(0, 28) + "..."%></h5>
+				<p><%=recipe.title.substring(0, 25) + "..."%></p>
 			</div>
 			<div class="form-row">
 			    <div class="col">

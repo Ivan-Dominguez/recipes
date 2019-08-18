@@ -43,7 +43,7 @@ var diet="vegetarian";
 
 //ROOT
 app.get("/", function(req, res){
-	res.redirect("/recipes");
+	res.render("home");
 });
 
 //RECIPE HOME
