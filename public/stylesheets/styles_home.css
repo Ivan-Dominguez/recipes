@@ -1,3 +1,7 @@
+.fab, .far{
+    padding:0px 5px;
+}
+
 .fab.fa-linkedin {
     color: #007bb6;
     font-size:36px;
@@ -9,11 +13,11 @@
 }
 
 .fas.fa-file-pdf{
-    font-size:34px;
+    font-size:33px;
     color: red;
 }
 
 .far.fa-envelope{
     color: blue;
-    font-size:36px;
+    font-size:34px;
 }
